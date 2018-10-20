@@ -27,5 +27,6 @@ namespace BSA.VersionSelector.ConsoleApp.States
         }
 
         protected override InstallPackage SelectedPackage => Context.InstallPackages[EnvironmentType.Test].ElementAt(SelectedIndex);
+        protected override int PackagesCount => Context.InstallPackages[EnvironmentType.Test].Count();
     }
 }

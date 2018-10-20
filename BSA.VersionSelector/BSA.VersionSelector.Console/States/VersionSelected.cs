@@ -9,6 +9,7 @@ namespace BSA.VersionSelector.ConsoleApp.States
         protected int SelectedIndex;
 
         protected abstract InstallPackage SelectedPackage { get; }
+        protected abstract int PackagesCount { get; }
 
         protected VersionSelected(int selectedIndex)
         {
@@ -51,16 +52,16 @@ namespace BSA.VersionSelector.ConsoleApp.States
             SelectedIndex--;
             if (SelectedIndex < 0)
             {
-                //SelectedIndex = Context.DefinedConfigs.Count() - 1;
+                SelectedIndex = PackagesCount - 1;
             }
         }
 
         private void IncrementIndex()
         {
             SelectedIndex++;
-            //if (SelectedIndex >= Context.DefinedConfigs.Count())
+            if (SelectedIndex >= PackagesCount)
             {
-                //SelectedIndex = 0;
+                SelectedIndex = 0;
             }
         }
 
